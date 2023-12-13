@@ -29,6 +29,20 @@ public class BricoolApplication  implements CommandLineRunner {
                 "echarfaouy", "mohamed@gmail.com",
                 "98364962936",
                 "mohamed"));
+        clientRepository.save(new Client("yassin",
+                "bentayfor", "mohamed@gmail.com",
+                "98364962936",
+                "mohamed"));
+
+        clientRepository.save(new Client("ayman",
+                "belhaj", "mohamed@gmail.com",
+                "98364962936",
+                "mohamed"));
+
+        clientRepository.save(new Client("med",
+                "aouzal", "mohamed@gmail.com",
+                "98364962936",
+                "mohamed"));
 
     }
 }

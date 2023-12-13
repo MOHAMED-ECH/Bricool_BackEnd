@@ -59,7 +59,7 @@ public class Seller extends Client{
                   String email,
                   String phone,
                   String password,
-                  String regionalOperations,
+                  //String regionalOperations,
                   String cin,
                   String businessHours,
                   Ville ville,
@@ -85,5 +85,11 @@ public class Seller extends Client{
         this.completedTAskNumber = completedTAskNumber;
 
 
+    }
+
+
+    public void addPhoto(Photo photo) {
+        photos.add(photo);
+        photo.setSeller(this);
     }
 }

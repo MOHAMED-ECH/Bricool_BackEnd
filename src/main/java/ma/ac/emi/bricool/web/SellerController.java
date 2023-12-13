@@ -41,14 +41,14 @@ public class SellerController {
 
 
 
-    @PostMapping("/sellers/{sellerId}/skill")
+   /* @PostMapping("/sellers/{sellerId}/skill")
     public Skill addSkillToSeller(@PathVariable Long sellerId, @RequestBody Skill skill) {
         Seller seller = sellerRepository.findById(sellerId).orElseThrow(() -> new ResourceNotFoundException("Seller not found"));
             skill.setSeller(seller);
             skillRepository.save(skill);
 
             return skill;
-    }
+    }*/
 
 
     @PostMapping("/sellers/{id}/image")
