@@ -6,6 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Date;
+
+
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -28,6 +32,8 @@ public class Client {
     private String Phone;
 
     private String password;
+
+
 
 
     public Client(String firstName, String lastName, String email, String phone, String password) {

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -16,10 +17,25 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 
-public class Seller extends Client{
+
+public class Seller {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "first_name")
+    private String firstName;
+    private String lastName;
+
+    private String email;
 
 
-    private List<Occupation> occupations = new ArrayList<>();
+    private String phone;
+
+    private String password;
+
+
+    private Occupation occupations ;
 
 
    // private List <String> regionalOperations;
@@ -46,13 +62,17 @@ public class Seller extends Client{
 
     private int completedTAskNumber;
 
+    private Date dateNaissance;
+
+
+    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Project> projects;
+
 
 
     @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true)
     private List <Photo> photos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true)
-   private List <Skill> skills= new ArrayList<>();
 
     public Seller(String firstName,
                   String lastName,
@@ -68,10 +88,15 @@ public class Seller extends Client{
                   String slogan,
                   String description,
                   int rating,
-                  int completedTAskNumber
+                  int completedTAskNumber,
+                  Date dateNaissance
     ) {
 
-        super(firstName, lastName, email, phone, password);
+        this.firstName= firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.phone= phone;
+        this.password=password;
 
        // this.regionalOperations = regionalOperations;
         this.cin = cin;
@@ -88,8 +113,38 @@ public class Seller extends Client{
     }
 
 
+    public Seller (String firstName, String lastName, String phone,String email, String password, Date dateNaissance){
+
+        this.firstName= firstName;
+        this.lastName=lastName;
+        this.email=email;
+        this.phone= phone;
+        this.password=password;
+        this.dateNaissance = dateNaissance;
+    }
+
+
     public void addPhoto(Photo photo) {
         photos.add(photo);
         photo.setSeller(this);
     }
+
+
+    public void removePhoto(Photo photo) {
+        photos.remove(photo);
+        photo.setSeller(null);
+    }
+
+
+    public void addProject(Project project) {
+        projects.add(project);
+        project.setSeller(this);
+    }
+
+    public void removeProject(Project project) {
+        projects.remove(project);
+        project.setSeller(null);
+    }
+
+
 }

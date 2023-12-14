@@ -2,11 +2,8 @@ package ma.ac.emi.bricool.web;
 
 
 import ma.ac.emi.bricool.entities.Seller;
-import ma.ac.emi.bricool.entities.Skill;
 import ma.ac.emi.bricool.repositories.SellerRepository;
-import ma.ac.emi.bricool.repositories.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,8 +20,6 @@ public class SellerController {
     @Autowired
     private SellerRepository sellerRepository;
 
-    @Autowired
-    private SkillRepository skillRepository;
 
 
     @GetMapping("/sellers/{id}")
