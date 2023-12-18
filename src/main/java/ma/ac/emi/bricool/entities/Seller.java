@@ -65,8 +65,8 @@ public class Seller {
     private Date dateNaissance;
 
 
-    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<Project> projects;
+    /*@OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Project> projects;*/
 
 
 
@@ -136,15 +136,15 @@ public class Seller {
     }
 
 
-    public void addProject(Project project) {
+  /*  public void addProject(Project project) {
         projects.add(project);
         project.setSeller(this);
-    }
+    }*/
 
-    public void removeProject(Project project) {
+   /* public void removeProject(Project project) {
         projects.remove(project);
         project.setSeller(null);
-    }
+    }*/
 
 
 }
